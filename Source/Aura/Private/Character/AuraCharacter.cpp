@@ -17,13 +17,3 @@ AAuraCharacter::AAuraCharacter()
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
 }
-
-void AAuraCharacter::HighlightActor()
-{
-	
-}
-
-void AAuraCharacter::UnHighlightActor()
-{
-	
-}
