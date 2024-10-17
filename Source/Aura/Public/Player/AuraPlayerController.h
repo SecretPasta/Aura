@@ -28,6 +28,7 @@ protected:
 	virtual void SetupInputComponent() override;
 
 	void Move(const FInputActionValue& InputActionValue);
+	
 private:
 
 	UPROPERTY(EditAnywhere, Category="Input")
