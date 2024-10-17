@@ -10,7 +10,7 @@
 /**
  * 
  */
-class UAuraAbilitySystemComponent;
+class UAbilitySystemComponent;
 class UAttributeSet;
 
 UCLASS()
@@ -26,7 +26,7 @@ public:
 protected:
 
 	UPROPERTY()
-	TObjectPtr<UAuraAbilitySystemComponent> AbilitySystemComponent;
+	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
 
 	UPROPERTY()
 	TObjectPtr<UAttributeSet> AttributeSet;
