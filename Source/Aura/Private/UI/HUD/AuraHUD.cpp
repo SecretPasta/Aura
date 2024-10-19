@@ -3,7 +3,6 @@
 
 #include "UI/HUD/AuraHUD.h"
 
-#include "Components/Overlay.h"
 #include "UI/Widget/AuraUserWidget.h"
 #include "UI/WidgetController/OverlayWidgetController.h"
 
@@ -30,6 +29,7 @@ void AAuraHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySyst
 	const FWidgetControllerParams WidgetControllerParams(PC,PS,ASC,AS);
 	UOverlayWidgetController* WidgetController = GetOverlayWidgetController(WidgetControllerParams);
 	OverlayWidget->SetWidgetController(WidgetController);
+	WidgetController->BroadcastInitialValues();
 	if (Widget)
 	{
 		Widget->AddToViewport();
