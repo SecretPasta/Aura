@@ -75,6 +75,9 @@ protected:
 	int32 StacksToRemove = 1;
 	
 	TMap<FActiveGameplayEffectHandle, UAbilitySystemComponent*> ActiveEffectHandles;
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Applied Effects")
+	float ActorLevel = 1.f;
 private:	
 
 	
