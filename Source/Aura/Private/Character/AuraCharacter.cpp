@@ -55,5 +55,5 @@ void AAuraCharacter::InitAbilityActorInfo()
 		}
 	}
 	// Applying gameplay effect to Initialize Values of Attributes
-	InitializePrimaryAttributes();
+	InitializeDefaultAttributes();
 }
