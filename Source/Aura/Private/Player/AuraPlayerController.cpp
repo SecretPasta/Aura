@@ -3,8 +3,6 @@
 
 #include "Player/AuraPlayerController.h"
 
-#include <ThirdParty/ShaderConductor/ShaderConductor/External/DirectXShaderCompiler/include/dxc/DXIL/DxilConstants.h>
-
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "Input/AuraInputComponent.h"
