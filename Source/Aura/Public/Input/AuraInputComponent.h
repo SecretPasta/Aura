@@ -40,8 +40,6 @@ void UAuraInputComponent::BindAbilityActions(const UAuraInputConfig* InputConfig
 				//Action.InputTag is passed into the function that HeldFunc is pointing at. (Subsequent parameters are also passed in to the function if defined here)
 				BindAction(Action.InputAction,ETriggerEvent::Triggered, Object, HeldFunc, Action.InputTag);
 			}
-
-			
 		}
 	}
 }
