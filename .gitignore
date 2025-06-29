@@ -16,3 +16,4 @@ Content
 *.suo
 *.xcodeproj
 *.xcworkspace
+*.user
