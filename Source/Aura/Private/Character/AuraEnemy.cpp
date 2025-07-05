@@ -6,7 +6,6 @@
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
 #include "AbilitySystem/AuraAttributeSet.h"
 #include "Aura/Aura.h"
-#include "Chaos/Deformable/MuscleActivationConstraints.h"
 #include "Components/WidgetComponent.h"
 
 
