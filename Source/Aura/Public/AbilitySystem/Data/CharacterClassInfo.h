@@ -22,7 +22,7 @@ struct FCharacterClassDefaultInfo
 	GENERATED_BODY()
 
 	UPROPERTY(EditDefaultsOnly, Category= "Class Defaults")
-	TSubclassOf<UGameplayEffect> PrimaryAttribute;
+	TSubclassOf<UGameplayEffect> PrimaryAttributes;
 	
 };
 
@@ -40,10 +40,10 @@ public:
 	TMap<ECharacterClass, FCharacterClassDefaultInfo> CharacterClassInformation;
 		
 	UPROPERTY(EditDefaultsOnly, Category= "Common Class Defaults")
-	TSubclassOf<UGameplayEffect> SecondaryAttribute;
+	TSubclassOf<UGameplayEffect> SecondaryAttributes;
 
 	UPROPERTY(EditDefaultsOnly, Category= "Common Class Defaults")
-	TSubclassOf<UGameplayEffect> VitalAttribute;
+	TSubclassOf<UGameplayEffect> VitalAttributes;
 
 	FCharacterClassDefaultInfo GetClassDefaultInfo(ECharacterClass CharacterClass);
 };
