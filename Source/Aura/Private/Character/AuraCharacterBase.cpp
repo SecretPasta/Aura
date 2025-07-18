@@ -103,7 +103,6 @@ void AAuraCharacterBase::Dissolve()
 	{
 		UMaterialInstanceDynamic* DynamicMatInst = UMaterialInstanceDynamic::Create(DissolveMaterialInstance,this);
 		GetMesh()->SetMaterial(0, DynamicMatInst);
-
 		StartDissolveTimeline(DynamicMatInst);
 	}
 	if (IsValid(WeaponDissolveMaterialInstance))
