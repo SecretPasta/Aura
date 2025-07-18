@@ -7,12 +7,16 @@
 #include "AuraGameplayTags.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "MovieSceneTracksComponentTypes.h"
 #include "NavigationPath.h"
 #include "NavigationSystem.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
 #include "Components/SplineComponent.h"
+#include "GameFramework/Character.h"
 #include "Input/AuraInputComponent.h"
 #include "Interaction/EnemyInterface.h"
+#include "Kismet/GameplayStatics.h"
+#include "UI/Widget/DamageTextComponent.h"
 
 AAuraPlayerController::AAuraPlayerController()
 {
@@ -26,6 +30,22 @@ void AAuraPlayerController::PlayerTick(float DeltaTime)
 	CursorTrace();
 	AutoRun();
 
+}
+
+void AAuraPlayerController::ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter)
+{
+	if (!IsValid(TargetCharacter) || DamageTextComponentClass == nullptr)
+	{
+		return;
+	}
+	UDamageTextComponent* DamageText = NewObject<UDamageTextComponent>(TargetCharacter, DamageTextComponentClass);
+	DamageText->RegisterComponent();
+	//The Text spawns the moment we attach it
+	DamageText->AttachToComponent(TargetCharacter->GetRootComponent(),FAttachmentTransformRules::KeepRelativeTransform);
+	//Detaching so that id doesn't follow the character
+	DamageText->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+	DamageText->SetDamageText(DamageAmount);
+	
 }
 
 void AAuraPlayerController::AutoRun()
