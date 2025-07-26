@@ -1,13 +1,19 @@
-Binaries
-DerivedDataCache
-Intermediate
-Saved
-Build
-Content
-.idea
+# Unreal Engine auto-generated folders and files
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
 
-.vscode
-.vs
+# Exclude entire Content folder except Blueprints
+Content/*
+!Content/Blueprints/
+!Content/Blueprints/**
+
+# IDE folders and files
+.idea/
+.vscode/
+.vs/
 *.VC.db
 *.opensdf
 *.opendb
