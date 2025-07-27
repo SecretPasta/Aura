@@ -74,7 +74,7 @@ void AAuraPlayerController::CursorTrace()
 	}
 	LastActor = ThisActor;
 	ThisActor = CursorHit.GetActor();
-
+	
 	if (LastActor != ThisActor)
 	{
 		if (LastActor)
