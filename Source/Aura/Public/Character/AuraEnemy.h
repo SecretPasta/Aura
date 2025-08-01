@@ -35,7 +35,9 @@ public:
 	
 	//Called only on the Server
 	virtual void Die() override;
-	
+
+	virtual void SetCombatTarget_Implementation(AActor* InCombatTarget);
+	virtual AActor* GetCombatTarget_Implementation() const;
 	/*End Combat Interface*/
 
 	UPROPERTY(BlueprintAssignable)
@@ -55,6 +57,9 @@ public:
 
 	UPROPERTY(EditAnywhere, Category= "Combat")
 	float LifeSpan = 5.f;
+
+	UPROPERTY(BlueprintReadWrite, Category= "Combat")
+	TObjectPtr<AActor> CombatTarget;
 protected:
 	virtual void BeginPlay() override;
 
