@@ -194,8 +194,8 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 		);
 
 	/*
- * Montage
- */
+	* Montage
+	*/
 
 	GameplayTags.Montage_Attack_Weapon = UGameplayTagsManager::Get().AddNativeGameplayTag(
 		FName("Montage.Attack.Weapon"),
