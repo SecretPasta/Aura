@@ -14,6 +14,7 @@ class UGameplayEffect;
 class UAuraAbilitySystemComponent;
 class UAttributeSet;
 class UAnimMontage;
+class USoundBase;
 
 UCLASS(Abstract)
 class AURA_API AAuraCharacterBase : public ACharacter, public IAbilitySystemInterface, public ICombatInterface
@@ -101,6 +102,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
 	TObjectPtr<UNiagaraSystem> BloodEffect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
+	TObjectPtr<USoundBase> DeathSound;
 private:
 
 	UPROPERTY(EditAnywhere, Category = "Abilities")
