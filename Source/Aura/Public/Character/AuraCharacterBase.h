@@ -38,6 +38,7 @@ public:
 	virtual UNiagaraSystem* GetBloodEffect_Implementation() override;
 	virtual FTaggedMontage GetTaggedMontageByTag_Implementation(const FGameplayTag& MontageTag) override;
 	virtual int32 GetMinionCount_Implementation() override;
+	virtual void IncremenetMinionCount_Implementation(int32 Amount) override;
 	/** end Combat Interface */
 	
 	//Handle the death on all Clients
