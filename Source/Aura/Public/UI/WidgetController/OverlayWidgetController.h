@@ -9,6 +9,7 @@
 
 
 class UAbilityInfo;
+class UAuraAbilitySystemComponent;
 // Widget to show stuff on screen for when a gameplay tag is applied
 USTRUCT(BlueprintType)
 struct FUIWidgetRow : public FTableRowBase
@@ -72,6 +73,8 @@ protected:
 
 	template<typename T>
 	T* GetDataTableRowByTag(UDataTable* DataTable, const FGameplayTag& Tag);
+
+	void OnInitializeStartupAbilities(UAuraAbilitySystemComponent* AuraAbilitySystemComponent);
 	
 };
 
