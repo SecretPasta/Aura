@@ -10,6 +10,7 @@ class UAuraAbilitySystemComponent;
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FEffectAssetTags, const FGameplayTagContainer& /*AssetTags*/);
 DECLARE_MULTICAST_DELEGATE_OneParam(FAbilitiesGiven, UAuraAbilitySystemComponent*);
+DECLARE_DELEGATE_OneParam(FForEachAbility, const FGameplayAbilitySpec&);
 
 /**
  * 
@@ -31,7 +32,10 @@ public:
 	
 	void AbilityInputTagHeld(const FGameplayTag& InputTags);
 	void AbilityInputTagReleased(const FGameplayTag& InputTags);
-	
+	void ForEachAbility(const FForEachAbility& Delegate);
+
+	static FGameplayTag GetAbilityTagFromSpec(const FGameplayAbilitySpec& AbilitySpec);
+	static FGameplayTag GetInputTagFromSpec(const FGameplayAbilitySpec& AbilitySpec);
 protected:
 
 	// Maybe make it unreliable to save bandwidth since it's only a message
