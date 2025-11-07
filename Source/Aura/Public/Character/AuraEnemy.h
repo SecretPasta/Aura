@@ -30,7 +30,7 @@ public:
 	virtual void UnHighlightActor() override;
 
 	/*Combat Interface*/
-	virtual int32 GetPlayerLevel() override;
+	virtual int32 GetPlayerLevel_Implementation() override;
 	
 	//Called only on the Server
 	virtual void Die() override;
