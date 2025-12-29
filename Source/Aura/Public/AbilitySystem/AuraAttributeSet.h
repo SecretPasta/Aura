@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "AttributeSet.h"
+#include "GameplayEffect.h"             // For FInheritedTagContainer
+#include "GameplayTagContainer.h" 
 #include "AbilitySystemComponent.h"
 #include "AuraAttributeSet.generated.h"
 
