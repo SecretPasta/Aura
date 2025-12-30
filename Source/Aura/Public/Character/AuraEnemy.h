@@ -33,7 +33,7 @@ public:
 	virtual int32 GetPlayerLevel_Implementation() override;
 	
 	//Called only on the Server
-	virtual void Die() override;
+	virtual void Die(const FVector& DeathImpulse) override;
 
 	virtual void SetCombatTarget_Implementation(AActor* InCombatTarget);
 	virtual AActor* GetCombatTarget_Implementation() const;
