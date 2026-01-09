@@ -54,11 +54,11 @@ void AAuraProjectile::Destroyed()
 
 void AAuraProjectile::OnHomingTargetDeath(AActor* DeadActor)
 {
-	if (!ProjectileMovementComponent) return;
+	if (!ProjectileMovement) return;
 
 	// Simplest behavior: stop homing and just fly forward (optionally enable gravity)
-	ProjectileMovementComponent->bIsHomingProjectile = false;
-	ProjectileMovementComponent->ProjectileGravityScale = 1.f; // optional
+	ProjectileMovement->bIsHomingProjectile = false;
+	ProjectileMovement->ProjectileGravityScale = 1.f; // optional
 }
 
 void AAuraProjectile::BeginPlay()
@@ -66,9 +66,9 @@ void AAuraProjectile::BeginPlay()
 	Super::BeginPlay();
 	
 	// Bind only on server so the authoritative projectile handles it once
-	if (HasAuthority() && ProjectileMovementComponent && ProjectileMovementComponent->HomingTargetComponent.IsValid())
+	if (HasAuthority() && ProjectileMovement && ProjectileMovement->HomingTargetComponent.IsValid())
 	{
-		AActor* TargetOwner = ProjectileMovementComponent->HomingTargetComponent->GetOwner();
+		AActor* TargetOwner = ProjectileMovement->HomingTargetComponent->GetOwner();
 		ICombatInterface* CombatInterface = Cast<ICombatInterface>(TargetOwner);
 		if (CombatInterface)
 		{
@@ -78,8 +78,8 @@ void AAuraProjectile::BeginPlay()
 			// Safety-net: target might already be dead at spawn time
 			if (ICombatInterface::Execute_IsDead(TargetOwner))
 			{
-				ProjectileMovementComponent->bIsHomingProjectile = false;
-				ProjectileMovementComponent->ProjectileGravityScale = 1.f; // optional
+				ProjectileMovement->bIsHomingProjectile = false;
+				ProjectileMovement->ProjectileGravityScale = 1.f; // optional
 			}
 		}
 	}
