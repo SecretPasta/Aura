@@ -12,6 +12,7 @@
 #include "NiagaraFunctionLibrary.h"
 #include "AbilitySystem/AuraAbilitySystemLibrary.h"
 #include "Aura/Aura.h"
+#include "Interaction/CombatInterface.h"
 
 
 AAuraProjectile::AAuraProjectile()
@@ -51,9 +52,38 @@ void AAuraProjectile::Destroyed()
 	Super::Destroyed();
 }
 
+void AAuraProjectile::OnHomingTargetDeath(AActor* DeadActor)
+{
+	if (!ProjectileMovementComponent) return;
+
+	// Simplest behavior: stop homing and just fly forward (optionally enable gravity)
+	ProjectileMovementComponent->bIsHomingProjectile = false;
+	ProjectileMovementComponent->ProjectileGravityScale = 1.f; // optional
+}
+
 void AAuraProjectile::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	// Bind only on server so the authoritative projectile handles it once
+	if (HasAuthority() && ProjectileMovementComponent && ProjectileMovementComponent->HomingTargetComponent.IsValid())
+	{
+		AActor* TargetOwner = ProjectileMovementComponent->HomingTargetComponent->GetOwner();
+		ICombatInterface* CombatInterface = Cast<ICombatInterface>(TargetOwner);
+		if (CombatInterface)
+		{
+			// Bind once
+			CombatInterface->GetOnDeathDelegate().AddUniqueDynamic(this, &AAuraProjectile::OnHomingTargetDeath);
+
+			// Safety-net: target might already be dead at spawn time
+			if (ICombatInterface::Execute_IsDead(TargetOwner))
+			{
+				ProjectileMovementComponent->bIsHomingProjectile = false;
+				ProjectileMovementComponent->ProjectileGravityScale = 1.f; // optional
+			}
+		}
+	}
+	
 	SetLifeSpan(LifeSpan);
 	SetReplicateMovement(true);
 	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AAuraProjectile::OnSphereOverlap);
