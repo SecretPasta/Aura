@@ -189,6 +189,7 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 				CombatInterface->GetOnDamageSignature().AddLambda([&](float DamageAmount)
 				{
 					DamageTypeValue = DamageAmount;
+					CombatInterface->GetOnDeathDelegate().Clear();
 				});
 			}
 			UGameplayStatics::ApplyRadialDamageWithFalloff(
