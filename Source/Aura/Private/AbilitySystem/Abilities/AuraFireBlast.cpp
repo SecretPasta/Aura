@@ -96,6 +96,7 @@ TArray<AAuraFireBall*> UAuraFireBlast::SpawnFireBalls()
 		FireBall->DamageEffectParams = MakeDamageEffectParamsFromClassDefaults();
 
 		FireBalls.Add(FireBall);
+		FireBall->ReturnToActor = GetAvatarActorFromActorInfo();
 
 		FireBall->FinishSpawning(SpawnTransform);
 	}
