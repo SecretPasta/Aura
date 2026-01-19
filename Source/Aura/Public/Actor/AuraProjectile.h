@@ -44,6 +44,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<USphereComponent> Sphere;
 	
+	bool IsValidOverlap(AActor* OtherActor);
+	bool bHit = false;
 private:
 
 	UPROPERTY(EditDefaultsOnly)
@@ -61,5 +63,5 @@ private:
 	UPROPERTY()
 	TObjectPtr<UAudioComponent> LoopingSoundComponent;
 	
-	bool bHit = false;
+
 };
