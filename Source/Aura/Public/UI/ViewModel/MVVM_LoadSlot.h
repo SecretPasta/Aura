@@ -24,6 +24,12 @@ public:
 	void InitializeSlot();
 	
 	
+	UPROPERTY()
+	FString PlayerName;
+	
+	UPROPERTY()
+	FString SlotIndex;
+	
 	void SetLoadSlotName(FString InLoadSlotName);
 	
 	FString GetLoadSlotName() const {return LoadSlotName;};
