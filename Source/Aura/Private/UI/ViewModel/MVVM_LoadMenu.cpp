@@ -86,5 +86,6 @@ void UMVVM_LoadMenu::LoadData()
 		LoadSlot.Value->SlotStatus = SaveSlotStatus;
 		LoadSlot.Value->SetPlayerName(PlayerName);
 		LoadSlot.Value->InitializeSlot();
+		LoadSlot.Value->SetMapName(SaveObject->MapName);
 	}
 }

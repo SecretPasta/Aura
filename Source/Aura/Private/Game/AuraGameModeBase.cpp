@@ -19,6 +19,7 @@ void AAuraGameModeBase::SaveSlotData(UMVVM_LoadSlot* LoadSlot, int32 SlotIndex)
 	ULoadMenuSaveGame* LoadMenuSaveGame = Cast<ULoadMenuSaveGame>(SaveGameObject);
 	LoadMenuSaveGame->PlayerName = LoadSlot->GetPlayerName();
 	LoadMenuSaveGame->SaveSlotStatus = Taken;
+	LoadMenuSaveGame->MapName = LoadSlot->GetMapName();
 
 	UGameplayStatics::SaveGameToSlot(LoadMenuSaveGame, LoadSlot->GetLoadSlotName(), SlotIndex);
 }
