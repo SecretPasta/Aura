@@ -15,7 +15,7 @@ class UAuraInputConfig;
 class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
-class IEnemyInterface;
+class IHighlightInterface;
 class UAuraAbilitySystemComponent;
 class USplineComponent;
 /**
@@ -63,8 +63,8 @@ private:
 	
 	void CursorTrace();
 
-	TScriptInterface<IEnemyInterface> LastActor;
-	TScriptInterface<IEnemyInterface> ThisActor;
+	TScriptInterface<IHighlightInterface> LastActor;
+	TScriptInterface<IHighlightInterface> ThisActor;
 	
 	FHitResult CursorHit;
 	void AbilityInputTagPressed(FGameplayTag InputTag);
