@@ -44,12 +44,16 @@ public:
 	virtual void SaveProgress_Implementation(const FName& CheckpointTag) override;
 	/*End Player Interface*/
 	
-
-	
 	/*Combat Interface*/
 	virtual int32 GetPlayerLevel_Implementation() override;
+	virtual void Die(const FVector& DeathImpulse) override;
 	/*End Combat Interface*/
 
+	UPROPERTY(EditDefaultsOnly)
+	float DeathTime = 5.f;
+
+	FTimerHandle DeathTimer;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UNiagaraComponent> LevelUpNiagaraComponent;
 	
