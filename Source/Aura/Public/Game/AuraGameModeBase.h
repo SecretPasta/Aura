@@ -6,6 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "AuraGameModeBase.generated.h"
 
+class ULootTiers;
 class ULoadMenuSaveGame;
 class USaveGame;
 class UMVVM_LoadSlot;
@@ -40,6 +41,10 @@ public:
 	void LoadWorldState(UWorld* World) const;
 	
 	void TravelToMap(UMVVM_LoadSlot* Slot);
+	
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Loot Tiers")
+	TObjectPtr<ULootTiers> LootTiers;
 	
 	UPROPERTY(EditDefaultsOnly)
 	FString DefaultMapName;
